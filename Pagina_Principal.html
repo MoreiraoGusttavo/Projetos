@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSM Systems</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>Auto HelpDesk</h1>
+            <p>Como podemos ajudá-lo hoje?</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Busque por palavras-chave, tópicos ou perguntas..." class="search-input">
+                <button class="search-btn" onclick="performSearch()">Buscar</button>
+            </div>
+        </div>
+
+        <div class="categories-section">
+            <h2>Categorias Populares</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('Início Rápido')">
+                    <div class="category-icon">🚀</div>
+                    <div class="category-name">Início Rápido</div>
+                    <div class="category-count">12 artigos</div>
+                </div>
+
+                <div class="category-card featured" onclick="filterByCategory('Conta e Perfil')">
+                    <div class="category-icon">👤</div>
+                    <div class="category-name">Conta e Perfil</div>
+                    <div class="category-count">8 artigos</div>
+                </div>
+
+                <div class="category-card" onclick="filterByCategory('HelpDesk')">
+                    <div class="category-icon">🚨</div>
+                    <div class="category-name">HelpDesk</div>
+                    <div class="category-count">1 artigo</div>
+                </div>
+
+                <div class="category-card" onclick="filterByCategory('Cobrança')">
+                    <div class="category-icon">💳</div>
+                    <div class="category-name">Cobrança</div>
+                    <div class="category-count">15 artigos</div>
+                </div>
+
+                <div class="category-card" onclick="filterByCategory('Segurança')">
+                    <div class="category-icon">🔒</div>
+                    <div class="category-name">Segurança</div>
+                    <div class="category-count">10 artigos</div>
+                </div>
+
+                <div class="category-card" onclick="filterByCategory('Integrações')">
+                    <div class="category-icon">🔌</div>
+                    <div class="category-name">Integrações</div>
+                    <div class="category-count">7 artigos</div>
+                </div>
+
+                <div class="category-card" onclick="filterByCategory('Troubleshooting')">
+                    <div class="category-icon">🔧</div>
+                    <div class="category-name">Solução de Problemas</div>
+                    <div class="category-count">20 artigos</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="articles-section">
+            <h2>Artigos em Destaque</h2>
+            <div class="articles-grid">
+                <div class="article-card" onclick="openArticle('Como criar minha conta')">
+                    <div class="article-icon">📝</div>
+                    <div class="article-title">Como criar minha conta</div>
+                    <div class="article-excerpt">Aprenda a configurar sua conta em poucos passos simples...</div>
+                    <div class="article-category">Início Rápido</div>
+                </div>
+
+                <div class="article-card" onclick="openArticle('Recuperar senha')">
+                    <div class="article-icon">🔑</div>
+                    <div class="article-title">Como recuperar minha senha</div>
+                    <div class="article-excerpt">Siga este guia passo a passo para recuperar o acesso à sua conta...</div>
+                    <div class="article-category">Conta e Perfil</div>
+                </div>
+
+                <div class="article-card" onclick="openArticle('Métodos de pagamento')">
+                    <div class="article-icon">💳</div>
+                    <div class="article-title">Métodos de pagamento aceitos</div>
+                    <div class="article-excerpt">Veja todas as formas de pagamento disponíveis e como utilizá-las...</div>
+                    <div class="article-category">Cobrança</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-list">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Como altero minha senha?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para alterar sua senha, acesse Configurações > Segurança > Alterar Senha. Você receberá um email de confirmação para completar a alteração.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Como cancelo minha assinatura?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode cancelar sua assinatura a qualquer momento em Configurações > Assinatura > Cancelar. Seu acesso permanecerá ativo até o fim do período pago.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Como entro em contato com o suporte?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode abrir um ticket de suporte usando o formulário abaixo ou enviar um email para suporte@gsmsystems.com. Nossa equipe responde em até 24 horas dependendo do plano/demanda.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Como funciona cada Plano?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Plano A/Plano B/Plano C/Plano D/Plano E/Plano F</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Meu pagamento não foi processado, o que fazer?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Verifique se os dados do cartão estão corretos. Se o problema persistir, entre em contato com seu banco ou tente usar outro método de pagamento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Ainda precisa de ajuda?</h2>
+            <p>Nossa equipe está pronta para ajudar você</p>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="contactName">Nome</label>
+                    <input type="text" id="contactName" name="name" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Assunto</label>
+                    <select id="contactSubject" name="subject" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="technical">Problema Dentro do Windows</option>
+                        <option value="technical">Problema Dentro do Linux</option>
+                        <option value="technical">Problema Dentro do Mac</option>
+                        <option value="technical">Problema no Próprio Notebook</option>
+                        <option value="technical">Problema no Próprio DeskTop</option>
+                        <option value="account">Conta e Perfil</option>
+                        <option value="billing">Problema na Assinatura</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Mensagem</label>
+                    <textarea id="contactMessage" name="message" rows="5" placeholder="Descreva seu problema ou dúvida..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Ticket</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value;
+            
+            alert(`Ticket enviado com sucesso! Obrigado, ${name}. Responderemos em breve para ${email}`);
+            this.reset();
+        });
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            // Clear search when input is empty
+            if (e.target.value.trim() === '') {
+                showAllItems();
+            }
+        });
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            
+            if (!query) {
+                // If search is empty, show all items
+                showAllItems();
+                return;
+            }
+
+            let hasResults = false;
+
+            // Search in article cards
+            const articleCards = document.querySelectorAll('.article-card');
+            articleCards.forEach(card => {
+                const title = card.querySelector('.article-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.article-excerpt').textContent.toLowerCase();
+                const category = card.querySelector('.article-category').textContent.toLowerCase();
+                
+                const matches = title.includes(query) || excerpt.includes(query) || category.includes(query);
+                
+                if (matches) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Search in FAQ items
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                
+                const matches = question.includes(query) || answer.includes(query);
+                
+                if (matches) {
+                    item.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Search in category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                const categoryName = card.querySelector('.category-name').textContent.toLowerCase();
+                
+                const matches = categoryName.includes(query);
+                
+                if (matches) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide sections based on results
+            const articlesSection = document.querySelector('.articles-section');
+            const faqSection = document.querySelector('.faq-section');
+            const categoriesSection = document.querySelector('.categories-section');
+
+            // Check if there are visible articles
+            const visibleArticles = Array.from(articleCards).some(card => card.style.display !== 'none');
+            articlesSection.style.display = visibleArticles ? 'block' : 'none';
+
+            // Check if there are visible FAQs
+            const visibleFaqs = Array.from(faqItems).some(item => item.style.display !== 'none');
+            faqSection.style.display = visibleFaqs ? 'block' : 'none';
+
+            // Check if there are visible categories
+            const visibleCategories = Array.from(categoryCards).some(card => card.style.display !== 'none');
+            categoriesSection.style.display = visibleCategories ? 'block' : 'none';
+
+            // Show message if no results
+            let noResultsMsg = document.getElementById('noResultsMessage');
+            if (!hasResults) {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'noResultsMessage';
+                    noResultsMsg.style.cssText = 'text-align: center; padding: 40px; color: #666; font-size: 1.2em;';
+                    noResultsMsg.innerHTML = `<p>Nenhum resultado encontrado para "<strong>${query}</strong>"</p><p style="margin-top: 10px; font-size: 0.9em;">Tente usar outras palavras-chave ou verifique a ortografia.</p>`;
+                    document.querySelector('.container').appendChild(noResultsMsg);
+                }
+            } else {
+                if (noResultsMsg) {
+                    noResultsMsg.remove();
+                }
+            }
+        }
+
+        function showAllItems() {
+            // Show all article cards
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.style.display = 'block';
+            });
+
+            // Show all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.style.display = 'block';
+            });
+
+            // Show all category cards
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.style.display = 'block';
+            });
+
+            // Show all sections
+            document.querySelector('.articles-section').style.display = 'block';
+            document.querySelector('.faq-section').style.display = 'block';
+            document.querySelector('.categories-section').style.display = 'block';
+
+            // Remove no results message if exists
+            const noResultsMsg = document.getElementById('noResultsMessage');
+            if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        }
+
+        function filterByCategory(category) {
+            alert(`Filtrando artigos da categoria: ${category}\n\nEm uma implementação real, esta ação mostraria apenas os artigos desta categoria.`);
+        }
+
+        function openArticle(title) {
+            alert(`Abrindo artigo: ${title}\n\nEm uma implementação real, esta ação abriria a página completa do artigo.`);
+        }
+
+        function toggleFaq(element) {
+            const isOpen = element.classList.contains('active');
+            const allFaqs = document.querySelectorAll('.faq-item');
+            
+            // Close all FAQs
+            allFaqs.forEach(faq => {
+                faq.classList.remove('active');
+                const toggle = faq.querySelector('.faq-toggle');
+                toggle.textContent = '+';
+            });
+            
+            // Open clicked FAQ if it wasn't open
+            if (!isOpen) {
+                element.classList.add('active');
+                const toggle = element.querySelector('.faq-toggle');
+                toggle.textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
